@@ -14,3 +14,24 @@ li {
     -webkit-box-shadow:  0 4px 3px #C8C8C8;
     box-shadow:  0 4px 3px #C8C8C8;
 }
+
+div.ui-content {
+	text-align:center;
+}
+
+img#picm {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    v-align: top;
+    margin: 10px;
+    padding: 5px;
+    -moz-box-shadow:  0 4px 3px #C8C8C8;
+    -webkit-box-shadow:  0 4px 3px #C8C8C8;
+    box-shadow:  0 4px 3px #C8C8C8;
+}
+
+img#about-logo {
+	text-align:center;
+}
