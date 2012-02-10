@@ -25,18 +25,32 @@
 	</div>--><!-- /footer -->
 </div><!-- /page -->
 
+<div data-role="dialog" id="offline-page" >
+	<div data-role="header">
+		<h1>No Internet connection!</a>
+	</div><!-- /header -->
+	<div data-role="content">
+		<p>Please connect your device to the Internet ...</p>
+		<a href="index.html" data-role="button" rel="external" >Close</a>
+	</div><!-- /content -->
+</div><!-- /page -->
+
 <div data-role="dialog" id="help" >
 	<div data-role="header">
 		<h1>Info</a>
 	</div><!-- /header -->
 	<div data-role="content">
 		<img src="Flickr_logo.png" id="about-logo">
-		<p>All photos from FordAntiTrus collection. See more picture goto <a href="http://www.flickr.com/photos/fordantitrust/">http://www.flickr.com/photos/fordantitrust/</a> :)</p>
+		<p>All photos from FordAntiTrus. See more picture goto <a href="http://www.flickr.com/photos/fordantitrust/">http://www.flickr.com/photos/fordantitrust/</a> :)</p>
 	</div><!-- /content -->
 </div><!-- /page -->
 
 <script type="text/javascript">
-     
+	if (navigator.onLine) {
+		location.href="index.html#offline-page";
+	}
+</script>
+<script type="text/javascript">
 		var playListURL = 'http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=f2ff0e52d2d513e7d55472b7bf0befe4&photoset_id=72157626095543437&format=json&jsoncallback=?';
 		$.getJSON(playListURL, function(data) {
 			var list_data = "";
@@ -55,8 +69,7 @@
 				list_data_tumb+= '<li><a href="#p'+item.id+'"><img src="' + photo_thumb + '"></a></li>';		
 			});
 			$(list_data_tumb).appendTo(".home");
-			$(list_data).appendTo("body");
-			
+			$(list_data).appendTo("body");			
 		});
 	</script>
 </body>
