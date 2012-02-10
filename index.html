@@ -51,7 +51,7 @@
 	}
 </script>
 <script type="text/javascript">
-		var playListURL = 'http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=f2ff0e52d2d513e7d55472b7bf0befe4&photoset_id=72157626095543437&format=json&jsoncallback=?';
+		var playListURL = 'http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=f2ff0e52d2d513e7d55472b7bf0befe4&photoset_id=72157626220891602&format=json&jsoncallback=?';
 		$.getJSON(playListURL, function(data) {
 			var list_data = "";
 			var list_data_tumb = "";
@@ -60,7 +60,7 @@
 				var photo_medium = 'http://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_z.jpg';
 				var photo_original = 'http://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_b.jpg';
 				list_data+='<div data-role="page" id="p'+item.id+'" >';
-				list_data+='<div data-role="header"><a href="#home" data-icon="home" data-direction="reverse" >Home</a><h1>FordAntitrust Angel Collection #1</h1><a href="'+photo_original+'" data-icon="up" >Download</a></div>';
+				list_data+='<div data-role="header"><a href="#home" data-icon="home" data-direction="reverse" >Home</a><h1>FordAntitrust Angel Collection #1</h1></div>';
 				list_data+='<div data-role="content">';
 				list_data+='<img id="picm" src="' + photo_medium + '">';
 				list_data+='</div>';
