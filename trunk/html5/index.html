@@ -15,7 +15,7 @@
 <!--  page overview -->
 <div data-role="page" id="home" >
 	<div data-role="header">
-		<a href="#help" data-rel="dialog" data-icon="info" >Info</a><h1>FordAntitrust Angel Collection #1</h1><a href="index.html" rel="external" data-icon="refresh" >Refresh</a>
+		<a href="#help" data-rel="dialog" data-icon="info" data-iconpos="notext" >Info</a><h1>FordAntitrust Angel Collection #1</h1><a href="index.html" rel="external" data-icon="refresh" data-iconpos="notext" >Refresh</a>
 	</div><!-- /header -->
 	<div data-role="content">
 		<ul class="home"></ul>
@@ -46,12 +46,16 @@
 </div><!-- /page -->
 
 <script type="text/javascript">
-	if (!navigator.onLine) {
-		location.href="index.html#offline-page";
-	}
-</script>
-<script type="text/javascript">
 		var playListURL = 'http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=f2ff0e52d2d513e7d55472b7bf0befe4&photoset_id=72157626220891602&format=json&jsoncallback=?';
+
+   $.ajaxSetup({
+       timeout: 10000, // Microseconds, for the laughs.  Guaranteed timeout.
+       error: function(request, status, maybe_an_exception_object) {
+           if(status = 'timeout')
+              location.href="notconnect.html"
+       }
+   });
+
 		$.getJSON(playListURL, function(data) {
 			var list_data = "";
 			var list_data_tumb = "";
@@ -60,7 +64,7 @@
 				var photo_medium = 'http://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_z.jpg';
 				var photo_original = 'http://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_b.jpg';
 				list_data+='<div data-role="page" id="p'+item.id+'" >';
-				list_data+='<div data-role="header"><a href="#home" data-icon="home" data-direction="reverse" >Home</a><h1>FordAntitrust Angel Collection #1</h1></div>';
+				list_data+='<div data-role="header"><a href="#home" data-icon="home" data-direction="reverse" data-iconpos="notext" >Home</a><h1>FordAntitrust Angel Collection #1</h1></div>';
 				list_data+='<div data-role="content">';
 				list_data+='<img id="picm" src="' + photo_medium + '">';
 				list_data+='</div>';
